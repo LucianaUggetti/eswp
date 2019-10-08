@@ -1,7 +1,7 @@
 
 
 body {
-	background-image : url("https://uploads.nonsprecare.it/wp-content/uploads/2017/04/buoni-motivi-per-viaggiare-in-treno-italia-europa-risparmio-1.jpg");
+	background-image : url("\eswp\WebContent\pic\sfondo.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -10,6 +10,8 @@ body {
 	
 }
 
+
 input {
 	color: blue;
 }
+

@@ -11,7 +11,8 @@
 	<h2>Viaggiate con noi, non ve ne pentirete &hearts;</h2>
 	<h6>Trust us &clubs;</h6>
 	<p>
-		Buona sera, per <b>noi</b> sei <b>importante</b>! </p>
+		Buona sera, per <b>noi</b> sei <b>importante</b>!
+	</p>
 	<form action="/comment" method="post">
 		<div>
 			<label for="userId">UserID:</label> <input type="text" id="userId"
@@ -20,32 +21,36 @@
 		<br>
 		<div>
 			<label for="psw"> Password :</label> <input type="password" id="psw"
-				name="psw" placeholder="password" required/>
+				name="psw" placeholder="password" required />
 		</div>
 		<br>
 		<div>
-			<input type="submit" value="Send" /> 
-			<input type="submit" value="Registrati" /> 
+			<input type="submit" value="Send" /> <input type="submit"
+				value="Registrati" />
 		</div>
+		
 		<br>
+		
 		<div>
 			<input type="radio" id="privacy" name="prv"
-			value="I accept the privacy" /> <label for="Privacy">privacy</label>
+				value="I accept the privacy" /> <label for="Privacy">privacy</label>
 		</div>
 	</form>
 	<hr>
 	<h4>Dove vorresti andare?</h4>
-	<select name="Viaggio">
-		<option value="Italia">Italia</option>
-		<option value="Estero" selected>Estero</option>
-		<option value="Non so">Non so</option>
-	</select>
+	
 	<br>
-
 	<p>
 		Viaggia con noi in questi meravigliosi luoghi <br>
 	</p>
-	<p>Milano &diams;</p>
+	
+	
+	<div>
+	<button onclick="getHtml()">Milano &diams;</button>
+	</div>
+	<br>
+	<textarea id="target" ></textarea>
+	<br>
 	<br>
 	<a href="https://www.comune.milano.it/"> <img
 		src="https://www.benvenutolimos.com/images/tours/Backgroundimages/milano.jpg"
@@ -53,6 +58,9 @@
 		width="20%" />
 	</a>
 	<br>
+	
+	
+	
 	<p>Roma &lowast;</p>
 	<br>
 	<a href=" https://www.comune.roma.it/web/it/home.page"> <img
@@ -60,6 +68,9 @@
 		alt="Roma &Rscr;" title="Capitale Lazio : Roma &sext;" width="20%" />
 	</a>
 	<br>
+	
+	
+	
 	<p>Firenze &curren;</p>
 	<br>
 	<a href="https://www.comune.fi.it/"> <img
@@ -68,6 +79,10 @@
 		width="20%" />
 	</a>
 	<br>
+	
+	
+	
+	
 	<p>Genova &asymp;</p>
 	<br>
 	<a href="https://smart.comune.genova.it/"> <img
@@ -76,6 +91,9 @@
 		width="20%" />
 	</a>
 	<br>
+	
+	
+	
 	<p>Reggio Calabria &prod;</p>
 	<br>
 	<a href="http://www.comune.reggio-calabria.it/on-line/Home.html"> <img
@@ -84,6 +102,10 @@
 		title="Capitale Calabria : Reggio Calabria &prod;" width="20%" />
 	</a>
 	<br>
+	
+	
+	
+	
 	<p>Bari &laquo;</p>
 	<br>
 	<a href="http://www.comune.bari.it/"> <img
@@ -92,6 +114,50 @@
 		width="20%" />
 	</a>
 	<br>
+	
+<script type="text/javascript">
+function callback() {
+    let target = document.getElementById('target');
 
+	try {
+        switch (this.readyState) {
+        case XMLHttpRequest.OPENED:
+            target.value += "[Server connection established]\n";
+            return;
+        case XMLHttpRequest.HEADERS_RECEIVED:
+            target.value += "[Request received]\n";
+            return;
+        case XMLHttpRequest.LOADING:
+            target.value += "[Processing request]\n";
+            return;
+        case XMLHttpRequest.DONE:
+            target.value += "[Response is ready]\n";
+            break;
+        default:
+            // UNSENT
+            target.value += "[Request not initialized or error " + this.readyState + "]\n";
+            return;
+        }
+    } catch (e) {
+        target.value += "[Exception: " + e + "]\n";
+        return;
+    }
+
+    if (this.status != 200) {
+        target.value += "[Something went wrong: " + this.status + "]\n";
+        return;
+    }
+
+    target.value += this.responseText;
+}
+	
+	function getHtml(){
+		let request= new XMLHttpRequest();
+		request.onload = callback;
+		request.open("GET", "/eswp/milano.html");
+		request.send();
+}
+	
+</script>
 </body>
 </html>
