@@ -1,17 +1,36 @@
 
 
-body {
-	background-image : url("\eswp\WebContent\pic\sfondo.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-
-	
-}
-
 
 input {
 	color: blue;
 }
 
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 50%
+}
+
+td, th {
+    border: 2px solid green;
+    padding: 3px;
+    text-align: left;
+}
+
+.content {
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	
+	margin: 40px auto;
+	background-image : url("../pic/sfondo.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	width: 100%;
+	max-width:960px;
+	border-radius: 5px;
+	padding-bottom:32px;
+	
+	
+}
